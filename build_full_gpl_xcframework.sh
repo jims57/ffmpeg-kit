@@ -18,11 +18,17 @@ echo ""
 
 # Build for iOS device only with GPL libraries + vidstab
 # This will create framework for real device only (no simulator)
+# CRITICAL: Enable iOS native frameworks to fix avpriv_fopen_utf8() file I/O
 ./ios.sh \
     --lts \
     --enable-gpl \
     --enable-libvidstab \
     --enable-x264 \
+    --enable-ios-audiotoolbox \
+    --enable-ios-videotoolbox \
+    --enable-ios-avfoundation \
+    --enable-ios-libiconv \
+    --enable-ios-bzip2 \
     --disable-armv7 \
     --disable-armv7s \
     --disable-i386 \
