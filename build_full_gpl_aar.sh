@@ -56,8 +56,10 @@ echo ""
 # - x264: 用于H.264视频编码
 # Note: Using non-LTS build for better NDK compatibility
 # Only building arm64-v8a to save time
-# Disable libiconv to avoid build issues
+# Use --speed to disable --enable-small, which enables all encoders/decoders
+# This is needed for watermark (mjpeg encoder, png decoder, overlay filter)
 ./android.sh \
+    --speed \
     --enable-gpl \
     --enable-libvidstab \
     --enable-lame \
